@@ -8,10 +8,10 @@ import {API_URL} from '../../config/constants';
 
 export function createEvent(props){
   const request = axios.post(`${API_URL}/events`, props);
-      browserHistory.push('/');  
   return (dispatch) => {
     request.then((data) => {
       dispatch({ type: CREATE_EVENT, payload: data })
+      browserHistory.push('/');  
     })
     .catch((error) => {
       console.log("Not created", error)
